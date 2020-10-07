@@ -42,7 +42,7 @@
 
 * Analising the Airbnb Listings in Berlin over time
 
-![AirBnB in Berlin evolution](Listings in Berlin.png)
+<img src="Listings in Berlin.png" width="400"/>
 
 * features and possible hypoteses.
 
