@@ -6,7 +6,7 @@
 
 **[Ironhack Data Analytics - August 2020]**
 
-### Overview:
+## Overview:
 
 * I will try to identify the hotspots neighbourhoods in Berlin where Airbnb as a bigger impact and could affect housing price/gentrification"
 	
@@ -24,8 +24,7 @@
 ### Data Ingestion
 
 * I created a jupyter notebook to download the data over time. (get_datasets.ipynb)
-f you downloaded a dataset (either public or private), describe where you downloaded it and include the command to load the dataset.
-* If you obtain the data via API/web scraping, provide the scripts.
+
 
 ### Data Wrangling and Cleaning
 
@@ -34,13 +33,18 @@ f you downloaded a dataset (either public or private), describe where you downlo
 
 ### Data Storage
 
-* Dump your data to a MySQL database and/or a `.csv` file.
+* All the merge files will not be storage in github because of the size limitations
+
 
 ## Data Analysis
 
-### Overview
+##Overview
 
-Overview the general steps you will go through to analyze your data in order to test your hypothesis.
+* Analising the Airbnb Listings in Berlin over time
+
+![AirBnB in Berlin evolution](Listings in Berlin.png)
+
+* features and possible hypoteses.
 
 ### Data Exploration and Visualization
 
@@ -66,4 +70,4 @@ Overview the general steps you will go through to analyze your data in order to 
 * The hot spots where Airbnb should have more impact on the neighbourhood is provide by the ploting files
 * through the analysis of the descriptive information of the cluster it could identify 3 main groups of neighbourhoods
 * The following neighborhoods
-* The model was craft with just small amount of features but in the NLP we could had more features about the description of the house, and which kind of offers are shapping the market. 
+* The model was craft with just small amount of features but with NLP we could had more features about the description of the house, and which kind of offers are shapping the market. 
