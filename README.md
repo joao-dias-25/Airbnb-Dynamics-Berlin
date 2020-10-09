@@ -13,7 +13,7 @@
 * I will cluster the listing base on some features that could influence the area?
 	* bigger impact- should mean more listings nearby, more rotativity, less availability, more profissionalise host, less personal.
 
-* I will use unsupervised Machine learning Kmeans	
+* I will use unsupervised Machine learning K-means	
 
 
 ### Dataset
@@ -42,7 +42,7 @@
 
 * Analising the Airbnb Listings in Berlin over time
 
-<img src="Listings in Berlin.png" width="400"/>
+<img src="Listings in Berlin.png" width="800"/>
 
 * features and possible hypoteses.
 
@@ -60,7 +60,7 @@
 
 ### Model Training and Evaluation
 
-* Try to find the best features to cluster the hotspots, sing K-means.
+* Try to find the best features to cluster the hotspots, using K-means.
 * More data cleaning.
 * Try different models and select one that is the simplest yet produce the best result.
 
