@@ -4,8 +4,8 @@ import requests
 from io import StringIO
 
 def app():
-    st.title('Neighbourhoods with the more AirBnB flat listings')
-    st.write('Top 10')
+    st.title('AirBnB in Berlin')
+    st.write('Top 10 Neighbourhoods with the more AirBnB flat listings')
 
 
     DATA_URL = 'https://ndownloader.figshare.com/files/25533041'
