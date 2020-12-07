@@ -1,5 +1,5 @@
 import streamlit as st
-import pyqrcode
+
 import Page1
 import Page2
 
