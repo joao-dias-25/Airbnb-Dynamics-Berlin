@@ -66,7 +66,7 @@ def app():
                 pdk.Layer(
                     "GridLayer",
                     data=data,
-                    opacity=0.5,
+                    opacity=0.2,
                     pickable=True,
                     extruded=True,
                     cell_size=200,
@@ -83,6 +83,6 @@ def app():
 
 
 
-    st.write('3D Map')
+    st.write('3D Map #(press control to rotate map)')
     map(df2,52.5, 13.4)
 
