@@ -47,7 +47,7 @@ def app():
         color_continuous_scale="Viridis", labels={"color": "Airbnb listings > 60", "frame": "Period"},
         opacity=0.5, min_count=60, height=500, zoom=10,
        show_original_data=True, original_data_marker=dict(opacity=0.4, size=3, color="grey"))
-    fig.update_layout(title={'text': "density spots"})
+    fig.update_layout(title={'text': "density spots 2D"})
     fig.update_layout(margin={"r": 0, "t": 30, "l": 0, "b": 0})
 
     st.plotly_chart(fig)
@@ -83,6 +83,6 @@ def app():
 
 
 
-
+    st.write('3D Map')
     map(df,52.5, 13.4)
 
