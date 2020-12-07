@@ -84,5 +84,5 @@ def app():
 
 
     st.write('3D Map')
-    map(df,52.5, 13.4)
+    map(df2,52.5, 13.4)
 
