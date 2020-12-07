@@ -8,6 +8,7 @@ from io import StringIO
 import datetime
 
 def app():
+
     st.title('AirBnB in Berlin')
     st.write('Entire Flat offers in berlin trough time')
 
@@ -18,12 +19,13 @@ def app():
         url = requests.get(DATA_URL)
         csv_raw = StringIO(url.text)
         data = pd.read_csv(csv_raw, low_memory=False,index_col=0)
-        return data
+        return data[['latitude','longitude', 'date']]
 
     df = load_data()
     #df.date = pd.to_datetime(df.date, format='%Y-%m-%d')
     y=st.selectbox('date', df.date.unique())
     df2=df.loc[df.date==y]
+
 
 
 
@@ -49,24 +51,38 @@ def app():
     fig.update_layout(margin={"r": 0, "t": 30, "l": 0, "b": 0})
 
     st.plotly_chart(fig)
-''''
-    st.pydeck_chart(pdk.Deck(
-        map_style='mapbox://styles/mapbox/light-v9',
-        initial_view_state=pdk.ViewState(
-            latitude=37.76,
-            longitude=-122.4,
-            zoom=11,
-            pitch=50,
-        ),
-        layers=[
-            pdk.Layer(
-                'ScatterplotLayer',
-                data=df,
-                get_position='[lon, lat]',
 
-                get_radius=200,
-            ),
-        ],
-    ))
+    # CREATING FUNCTION FOR MAPS
 
-'''
+    def map(data, latitude, longitude):
+        st.pydeck_chart(pdk.Deck( map_style="mapbox://styles/mapbox/streets-v11",
+            initial_view_state={
+                "latitude": latitude,
+                "longitude": longitude,
+                "zoom": 10,
+                "pitch": 50,
+            },
+            layers=[
+                pdk.Layer(
+                    "GridLayer",
+                    data=data,
+                    opacity=0.5,
+                    pickable=True,
+                    extruded=True,
+                    cell_size=200,
+                    elevation_scale=4,
+                    get_position=["longitude", "latitude"],
+                ),
+            ],
+                     tooltip={"text": "{position}\nCount: {count}"},
+                     mapbox_key='pk.eyJ1Ijoiam9obnppbnoiLCJhIjoiY2tmbWthazZ6MDNueDJxb2ZyZ2M3czU0dyJ9.Bl3T4kl14xan7glGxid_Rw'
+
+        ))
+
+    # SETTING THE ZOOM LOCATIONS FOR THE AIRPORTS
+
+
+
+
+    map(df,52.5, 13.4)
+
