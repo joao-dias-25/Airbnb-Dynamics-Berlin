@@ -14,9 +14,9 @@ selection = st.sidebar.radio("Go to", list(PAGES.keys()))
 page = PAGES[selection]
 
 
+st.sidebar.markdown('---')
 
 
-from PIL import Image
 st.sidebar.image('uca-url.png', caption='Donation Address: bitcoin', width= 250)
 #st.sidebar.image(Image.open('ethcode.jpeg'), caption='Donation Address: ethereum', width= 250)
 page.app()
