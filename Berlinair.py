@@ -3,6 +3,8 @@ import streamlit as st
 import Page1
 import Page2
 
+st.set_page_config(layout="wide")
+
 PAGES = {
     "Top 10 neighbourhoods": Page1,
     "Map": Page2

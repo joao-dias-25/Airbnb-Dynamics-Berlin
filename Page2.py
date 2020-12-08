@@ -8,9 +8,11 @@ from io import StringIO
 import datetime
 
 def app():
+    col1, col2 = st.beta_columns(2)
 
-    st.title('AirBnB in Berlin')
-    st.write('## Entire Flat AirBnB listings density in berlin')
+    with col1:
+        st.title('AirBnB in Berlin')
+        st.write('## Entire Flat AirBnB listings density')
 
     DATA_URL = 'https://ndownloader.figshare.com/files/25533041'
 
@@ -21,9 +23,11 @@ def app():
         data = pd.read_csv(csv_raw, low_memory=False,index_col=0)
         return data[['latitude','longitude', 'date']]
 
+
     df = load_data()
     #df.date = pd.to_datetime(df.date, format='%Y-%m-%d')
-    y=st.selectbox('date', df.date.unique())
+    with col2:
+        y=st.selectbox('date', df.date.unique())
     df2=df.loc[df.date==y]
 
 
@@ -48,9 +52,11 @@ def app():
         opacity=0.5, min_count=60, height=500, zoom=10,
        show_original_data=True, original_data_marker=dict(opacity=0.4, size=3, color="grey"))
     fig.update_layout(title={'text': "density spots 2D"})
-    fig.update_layout(margin={"r": 0, "t": 30, "l": 0, "b": 0})
-
-    st.plotly_chart(fig)
+    fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
+    col1, col2 = st.beta_columns(2)
+    with col2:
+        st.write('2D Map')
+        st.plotly_chart(fig)
 
     # CREATING FUNCTION FOR MAPS
 
@@ -81,8 +87,7 @@ def app():
 
     # SETTING THE ZOOM LOCATIONS FOR THE AIRPORTS
 
-
-
-    st.write('3D Map #(press control to rotate map)')
-    map(df2,52.5, 13.4)
+    with col1:
+        st.write('3D Map #(press control to rotate map)')
+        map(df2,52.5, 13.4)
 
