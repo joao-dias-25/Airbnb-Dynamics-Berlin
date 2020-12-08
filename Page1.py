@@ -5,7 +5,7 @@ from io import StringIO
 
 def app():
     st.title('AirBnB in Berlin')
-    st.write('Top 10 Neighbourhoods with the more AirBnB Entire flat listings')
+    st.write('## Top 10 Neighbourhoods with the most flat listings on AirBnB')
 
 
     DATA_URL = 'https://ndownloader.figshare.com/files/25533041'

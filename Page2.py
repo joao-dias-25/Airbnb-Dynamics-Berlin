@@ -10,7 +10,7 @@ import datetime
 def app():
 
     st.title('AirBnB in Berlin')
-    st.write('Entire Flat offers in berlin trough time')
+    st.write('## Entire Flat AirBnB listings density in berlin')
 
     DATA_URL = 'https://ndownloader.figshare.com/files/25533041'
 
