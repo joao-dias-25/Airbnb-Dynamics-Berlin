@@ -14,7 +14,7 @@ def app():
     def load_data():
         url = requests.get(DATA_URL)
         csv_raw = StringIO(url.text)
-        data = pd.read_csv(csv_raw, low_memory=False,index_col=0)
+        data = pd.read_csv(csv_raw, low_memory=False,index_col=0, encoding ='utf-8')
         #data['date'] = pd.to_datetime(data['date'])
         return data
 
@@ -30,7 +30,7 @@ def app():
 
     toplot = df2.loc[df2['neighbourhood_cleansed'].isin(top10)]
     fig = px.line(toplot, x="date", y="id", color='neighbourhood_cleansed')
-    fig.update_yaxes(title_text='number of offers')
+    fig.update_yaxes(title_text='number of listings')
 
     st.plotly_chart(fig)
 
@@ -44,7 +44,7 @@ def app():
 
     import json
 
-    with open('berlin-neighbourhoods.geojson') as json_file:
+    with open('berlin-neighbourhoods.geojson',encoding ='utf-8') as json_file:
         data = json.load(json_file)
 
     import plotly.express as px
