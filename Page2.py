@@ -59,7 +59,7 @@ def app():
     # CREATING FUNCTION FOR MAPS
 
     def map(data, latitude, longitude):
-        st.pydeck_chart(pdk.Deck( map_style="mapbox://styles/mapbox/streets-v11",
+        st.pydeck_chart(pdk.Deck( map_style="mapbox://styles/johnzinz/ckihdfwni4slu1atbeqiucn34",
             initial_view_state={
                 "latitude": latitude,
                 "longitude": longitude,
@@ -73,8 +73,8 @@ def app():
                     opacity=0.2,
                     pickable=True,
                     extruded=True,
-                    cell_size=200,
-                    elevation_scale=4,
+                    cell_size=100,
+                    elevation_scale=2,
                     get_position=["longitude", "latitude"],
                 ),
             ],
