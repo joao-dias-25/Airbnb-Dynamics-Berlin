@@ -14,7 +14,7 @@ def app():
     def load_data():
         url = requests.get(DATA_URL)
         csv_raw = StringIO(url.text)
-        data = pd.read_csv(csv_raw, low_memory=False,index_col=0, encoding='cp273')
+        data = pd.read_csv(csv_raw, low_memory=False,index_col=0)
         #data['date'] = pd.to_datetime(data['date'])
         return data
 
