@@ -12,9 +12,9 @@ def app():
 
     @st.cache(persist=True)
     def load_data():
-        url = requests.get(DATA_URL)
-        csv_raw = StringIO(url.text)
-        data = pd.read_csv(csv_raw, low_memory=False,index_col=0, encoding ='utf-8')
+        url = requests.get(DATA_URL).content
+        csv_raw = StringIO(url.decode('utf-8'))
+        data = pd.read_csv(csv_raw, low_memory=False,index_col=0)
         #data['date'] = pd.to_datetime(data['date'])
         return data
 
