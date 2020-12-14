@@ -2,12 +2,14 @@ import streamlit as st
 
 import Page1
 import Page2
+import Page3
 
 st.set_page_config(layout="wide")
 
 PAGES = {
     "Top 15 neighbourhoods": Page1,
-    "Map": Page2
+    "Map": Page2,
+    "neighbourhood price": Page3
 }
 st.sidebar.title('Navigation')
 selection = st.sidebar.radio("Go to", list(PAGES.keys()))
