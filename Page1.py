@@ -30,7 +30,7 @@ def app():
 
     import plotly.express as px
 
-    toplot = df2.loc[df2['neighbourhood_cleansed'].isin(top40)]
+    toplot = df2.loc[df2['neighbourhood_cleansed'].isin(top15)]
     fig = px.line(toplot, x="date", y="id", color='neighbourhood_cleansed')
     fig.update_yaxes(title_text='number of listings')
 
