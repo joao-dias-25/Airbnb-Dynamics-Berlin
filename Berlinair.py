@@ -6,7 +6,7 @@ import Page2
 st.set_page_config(layout="wide")
 
 PAGES = {
-    "Top 10 neighbourhoods": Page1,
+    "Top 15 neighbourhoods": Page1,
     "Map": Page2
 }
 st.sidebar.title('Navigation')

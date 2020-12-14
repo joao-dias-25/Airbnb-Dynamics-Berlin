@@ -12,7 +12,7 @@ def app():
         st.title('AirBnB in Berlin')
         st.write('## Entire Flat AirBnB listings density')
 
-    DATA_URL = 'https://ndownloader.figshare.com/files/25533041'
+    DATA_URL = 'https://ndownloader.figshare.com/files/25767323'
 
     @st.cache(allow_output_mutation=True)
     def load_data():
