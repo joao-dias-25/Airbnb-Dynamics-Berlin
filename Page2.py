@@ -5,31 +5,18 @@ import requests
 from io import StringIO
 import datetime
 
-def app():
+def app(df):
     col1, col2 = st.beta_columns(2)
 
     with col1:
         st.title('AirBnB in Berlin')
         st.write('## Entire Flat AirBnB listings density')
 
-    DATA_URL = 'https://ndownloader.figshare.com/files/25767323'
-
-    @st.cache(allow_output_mutation=True)
-    def load_data():
-        url = requests.get(DATA_URL)
-        csv_raw = StringIO(url.text)
-        data = pd.read_csv(csv_raw, low_memory=False,index_col=0)
-        return data[['latitude','longitude', 'date']]
-
-
-    df = load_data()
+    df=df[['latitude', 'longitude', 'date']]
     #df.date = pd.to_datetime(df.date, format='%Y-%m-%d')
     with col2:
         y=st.selectbox('date', df.date.unique())
     df2=df.loc[df.date==y]
-
-
-
 
 
     import plotly.express as px

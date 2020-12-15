@@ -1,25 +1,11 @@
 import streamlit as st
 import pandas as pd
-import requests
-from io import StringIO
 
-def app():
+def app(df):
     st.title('AirBnB in Berlin')
     st.write('## Top 15 Neighbourhoods with the most flat listings on AirBnB')
 
-    DATA_URL ='https://ndownloader.figshare.com/files/25767323'
-    # 'https://ndownloader.figshare.com/files/25533041'
 
-
-    @st.cache(persist=True)
-    def load_data():
-        url = requests.get(DATA_URL).content
-        csv_raw = StringIO(url.decode('utf-8'))
-        data = pd.read_csv(csv_raw, low_memory=False,index_col=0)
-        #data['date'] = pd.to_datetime(data['date'])
-        return data
-
-    df = load_data()
 
     top15 = df.loc[df.date == '2020-10-13']['neighbourhood_cleansed'].value_counts()[:15].index.tolist()
     top40 = df.loc[df.date == '2020-10-13']['neighbourhood_cleansed'].value_counts()[:40].index.tolist()

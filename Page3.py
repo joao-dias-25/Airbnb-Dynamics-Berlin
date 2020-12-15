@@ -1,28 +1,12 @@
 import streamlit as st
 import pandas as pd
-import requests
-from io import StringIO
 
-def app():
+def app(df):
 
     st.title('AirBnB in Berlin')
     st.write('## Calculate your flat')
 
     col1, col2 = st.beta_columns(2)
-
-    DATA_URL = 'https://ndownloader.figshare.com/files/25767323'
-
-    # 'https://ndownloader.figshare.com/files/25533041'
-
-    @st.cache(persist=True)
-    def load_data():
-        url = requests.get(DATA_URL).content
-        csv_raw = StringIO(url.decode('utf-8'))
-        data = pd.read_csv(csv_raw, low_memory=False, index_col=0)
-        # data['date'] = pd.to_datetime(data['date'])
-        return data
-
-    df = load_data()
 
     with col1:
         y=st.selectbox('neighbourhood', df.neighbourhood_cleansed.unique())
@@ -42,12 +26,11 @@ def app():
                                        'Median price',
                                        'upper quantile (<75%)',
                                        'Average price']
-
                   )
 
     fig.update_yaxes(title_text='Price per night')
+
     fig.update_layout(legend_title_text='price range',
                       legend=dict(y=1))
-
 
     st.plotly_chart(fig)
