@@ -30,11 +30,13 @@ st.sidebar.image('uca-url.png', caption='Donation Address: bitcoin', width= 250)
 
 st.title(f'AirBnB in {city}')
 
-DATA_URL = 'https://ndownloader.figshare.com/files/25844933'
- #'https://ndownloader.figshare.com/files/25844933'
-#'https://ndownloader.figshare.com/files/25767323'
+my_cities = {'Berlin': 'https://ndownloader.figshare.com/files/25844933',
+             'Porto': 'nolink'}
 
-# 'https://ndownloader.figshare.com/files/25533041'
+DATA_URL = my_cities.get(city)
+geojson_string = 'Berlin-neighbourhoods.geojson'
+
+#'https://ndownloader.figshare.com/files/25767323'
 
 
 @st.cache(persist=True,allow_output_mutation=True)
@@ -46,5 +48,5 @@ def load_data():
     return data
 
 #loads the data for every page
-page.app(load_data())
+page.app(load_data(),geojson_string)
 

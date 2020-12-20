@@ -1,10 +1,8 @@
 import streamlit as st
 import pandas as pd
 
-def app(df):
+def app(df,geojson_file):
     st.write('## Top 15 Neighbourhoods with the most flat listings on AirBnB')
-
-
 
     top15 = df.loc[df.date == '2020-10-13']['neighbourhood_cleansed'].value_counts()[:15].index.tolist()
     top40 = df.loc[df.date == '2020-10-13']['neighbourhood_cleansed'].value_counts()[:40].index.tolist()
@@ -31,7 +29,7 @@ def app(df):
 
     import json
 
-    with open('berlin-neighbourhoods.geojson',encoding ='utf-8') as json_file:
+    with open(geojson_file,encoding ='utf-8') as json_file:
         data = json.load(json_file)
 
     import plotly.express as px
