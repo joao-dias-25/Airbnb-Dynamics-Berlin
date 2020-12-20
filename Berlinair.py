@@ -34,7 +34,7 @@ my_cities = {'Berlin': 'https://ndownloader.figshare.com/files/25844933',
              'Porto': 'nolink'}
 
 DATA_URL = my_cities.get(city)
-geojson_string = 'Berlin-neighbourhoods.geojson'
+geojson_string = 'berlin-neighbourhoods.geojson'
 
 #'https://ndownloader.figshare.com/files/25767323'
 
