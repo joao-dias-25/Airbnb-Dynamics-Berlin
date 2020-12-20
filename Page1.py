@@ -2,10 +2,10 @@ import streamlit as st
 import pandas as pd
 
 def app(df,geojson_file,l_date):
-    st.write('## Top 15 Neighbourhoods with the most flat listings on AirBnB')
+    st.write('## Top Neighbourhoods with more flat listings on AirBnB')
 
-    top15 = df.loc[df.date == l_date ]['neighbourhood_cleansed'].value_counts()[:15].index.tolist()
-    top0 = df.loc[df.date == l_date ]['neighbourhood_cleansed'].value_counts().loc[lambda x : x>80].index.tolist()
+    top15 = df.loc[df.date == l_date ]['neighbourhood_cleansed'].value_counts().loc[lambda x : x>200].index.tolist()
+    top0 = df.loc[df.date == l_date ]['neighbourhood_cleansed'].value_counts().loc[lambda x : x>70].index.tolist()
     df2=df.groupby(['neighbourhood_cleansed','date'],as_index=False).count()[['neighbourhood_cleansed','date','id','price']]
     df2.date = pd.to_datetime(df2.date, format='%Y-%m-%d')
 

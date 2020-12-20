@@ -10,7 +10,7 @@ import Page3
 st.set_page_config(layout="wide")
 
 PAGES = {
-    "Top 15 neighbourhoods": Page1,
+    "Top neighbourhoods": Page1,
     "Map": Page2,
     "neighbourhood price": Page3
 }

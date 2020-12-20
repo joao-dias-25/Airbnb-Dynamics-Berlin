@@ -6,9 +6,9 @@ def app(df,geojson_file, l_date):
     st.write('## Calculate your flat')
 
     col1, col2 = st.beta_columns(2)
-
+    top0 = df.loc[df.date == l_date]['neighbourhood_cleansed'].value_counts().loc[lambda x: x > 70].index.tolist()
     with col1:
-        y=st.selectbox('neighbourhood', df.neighbourhood_cleansed.unique())
+        y=st.selectbox('neighbourhood', top0)
     df2=df.loc[df.neighbourhood_cleansed==y]
 
     import plotly.express as px
