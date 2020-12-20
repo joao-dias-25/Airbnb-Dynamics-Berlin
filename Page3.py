@@ -3,7 +3,6 @@ import pandas as pd
 
 def app(df):
 
-    st.title('AirBnB in Berlin')
     st.write('## Calculate your flat')
 
     col1, col2 = st.beta_columns(2)
