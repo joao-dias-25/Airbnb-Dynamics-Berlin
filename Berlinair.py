@@ -15,7 +15,7 @@ PAGES = {
     "neighbourhood price": Page3
 }
 st.sidebar.title('Navigation')
-city = st.sidebar.radio("City", ['Berlin'])
+city = st.sidebar.radio("City", ['Berlin','Porto'])
 
 selection = st.sidebar.radio("Go to", list(PAGES.keys()))
 page = PAGES[selection]
@@ -31,11 +31,16 @@ st.sidebar.image('uca-url.png', caption='Donation Address: bitcoin', width= 250)
 st.title(f'AirBnB in {city}')
 
 my_cities = {'Berlin': 'https://ndownloader.figshare.com/files/25844933',
-             'Porto': 'nolink'}
+             'Porto': 'https://ndownloader.figshare.com/files/25846991'}
+
+my_geojson = {'Berlin': 'berlin-neighbourhoods.geojson',
+             'Porto': 'Porto-neighbourhoods.geojson'}
+my_last_date = {'Berlin': '2020-10-13',
+             'Porto': '2020-11-08'}
 
 DATA_URL = my_cities.get(city)
-geojson_string = 'berlin-neighbourhoods.geojson'
-
+geojson_string = my_geojson.get(city)
+last_date = my_last_date.get(city)
 #'https://ndownloader.figshare.com/files/25767323'
 
 
@@ -48,5 +53,5 @@ def load_data():
     return data
 
 #loads the data for every page
-page.app(load_data(),geojson_string)
+page.app(load_data(),geojson_string,last_date)
 

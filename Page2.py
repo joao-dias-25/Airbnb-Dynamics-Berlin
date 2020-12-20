@@ -5,7 +5,7 @@ import requests
 from io import StringIO
 import datetime
 
-def app(df,geojson_file):
+def app(df,geojson_file, l_date):
     col1, col2 = st.beta_columns(2)
 
     with col1:

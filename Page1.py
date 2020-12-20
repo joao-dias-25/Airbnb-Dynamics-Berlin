@@ -1,11 +1,11 @@
 import streamlit as st
 import pandas as pd
 
-def app(df,geojson_file):
+def app(df,geojson_file,l_date):
     st.write('## Top 15 Neighbourhoods with the most flat listings on AirBnB')
 
-    top15 = df.loc[df.date == '2020-10-13']['neighbourhood_cleansed'].value_counts()[:15].index.tolist()
-    top40 = df.loc[df.date == '2020-10-13']['neighbourhood_cleansed'].value_counts()[:40].index.tolist()
+    top15 = df.loc[df.date == l_date ]['neighbourhood_cleansed'].value_counts()[:15].index.tolist()
+    top0 = df.loc[df.date == l_date ]['neighbourhood_cleansed'].value_counts().loc[lambda x : x>80].index.tolist()
     df2=df.groupby(['neighbourhood_cleansed','date'],as_index=False).count()[['neighbourhood_cleansed','date','id','price']]
     df2.date = pd.to_datetime(df2.date, format='%Y-%m-%d')
 
@@ -34,10 +34,10 @@ def app(df,geojson_file):
 
     import plotly.express as px
 
-    dfmap = df.loc[df.date == '2020-11-10']
+    dfmap = df.loc[df.date == l_date ]
     dfmap = dfmap.groupby(['neighbourhood_cleansed'], as_index=False).median()[
         ['neighbourhood_cleansed','id', 'price']]
-    dfmap = dfmap.loc[dfmap['neighbourhood_cleansed'].isin(top40)]
+    dfmap = dfmap.loc[dfmap['neighbourhood_cleansed'].isin(top0)]
 
     fig3 = px.choropleth_mapbox(dfmap, geojson=data, locations='neighbourhood_cleansed',
                                featureidkey="properties.neighbourhood", color='price',

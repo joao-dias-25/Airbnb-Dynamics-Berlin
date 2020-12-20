@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-def app(df,geojson_file):
+def app(df,geojson_file, l_date):
 
     st.write('## Calculate your flat')
 
