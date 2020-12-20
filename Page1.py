@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 
 def app(df):
-    st.title('AirBnB in Berlin')
     st.write('## Top 15 Neighbourhoods with the most flat listings on AirBnB')
 
 
@@ -37,7 +36,7 @@ def app(df):
 
     import plotly.express as px
 
-    dfmap = df.loc[df.date == '2020-10-13']
+    dfmap = df.loc[df.date == '2020-11-10']
     dfmap = dfmap.groupby(['neighbourhood_cleansed'], as_index=False).median()[
         ['neighbourhood_cleansed','id', 'price']]
     dfmap = dfmap.loc[dfmap['neighbourhood_cleansed'].isin(top40)]

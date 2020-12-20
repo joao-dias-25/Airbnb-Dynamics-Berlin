@@ -9,7 +9,6 @@ def app(df):
     col1, col2 = st.beta_columns(2)
 
     with col1:
-        st.title('AirBnB in Berlin')
         st.write('## Entire Flat AirBnB listings density')
 
     df=df[['latitude', 'longitude', 'date']]

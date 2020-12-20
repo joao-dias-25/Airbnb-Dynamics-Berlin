@@ -15,8 +15,11 @@ PAGES = {
     "neighbourhood price": Page3
 }
 st.sidebar.title('Navigation')
+city = st.sidebar.radio("City", ['Berlin'])
+
 selection = st.sidebar.radio("Go to", list(PAGES.keys()))
 page = PAGES[selection]
+
 
 
 st.sidebar.markdown('---')
@@ -25,9 +28,11 @@ st.sidebar.markdown('---')
 st.sidebar.image('uca-url.png', caption='Donation Address: bitcoin', width= 250)
 #st.sidebar.image(Image.open('ethcode.jpeg'), caption='Donation Address: ethereum', width= 250)
 
+st.title(f'AirBnB in {city}')
 
-DATA_URL = 'https://ndownloader.figshare.com/files/25767323'
-
+DATA_URL = 'https://ndownloader.figshare.com/files/25844933'
+ #'https://ndownloader.figshare.com/files/25844933'
+#'https://ndownloader.figshare.com/files/25767323'
 
 # 'https://ndownloader.figshare.com/files/25533041'
 
