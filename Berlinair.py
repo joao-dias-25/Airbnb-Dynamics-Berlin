@@ -38,9 +38,13 @@ my_geojson = {'Berlin': 'berlin-neighbourhoods.geojson',
 my_last_date = {'Berlin': '2020-10-13',
              'Porto': '2020-11-08'}
 
+my_center= {'Berlin': [52.5,13.4],
+             'Porto': [41.15,-08.6] }
+
 DATA_URL = my_cities.get(city)
 geojson_string = my_geojson.get(city)
 last_date = my_last_date.get(city)
+center = my_center.get(city)
 #'https://ndownloader.figshare.com/files/25767323'
 
 
@@ -53,5 +57,5 @@ def load_data():
     return data
 
 #loads the data for every page
-page.app(load_data(),geojson_string,last_date)
+page.app(load_data(),geojson_string,last_date,center)
 

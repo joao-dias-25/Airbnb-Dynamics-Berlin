@@ -1,11 +1,10 @@
 import streamlit as st
 import pandas as pd
 import pydeck as pdk
-import requests
-from io import StringIO
+
 import datetime
 
-def app(df,geojson_file, l_date):
+def app(df,geojson_file, l_date,center):
     col1, col2 = st.beta_columns(2)
 
     with col1:
@@ -72,5 +71,5 @@ def app(df,geojson_file, l_date):
 
     with col1:
         st.write('3D Map #(press control to rotate map)')
-        map(df2,52.5, 13.4)
+        map(df2,center[0], center[1])
 

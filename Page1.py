@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-def app(df,geojson_file,l_date):
+def app(df,geojson_file,l_date,center):
     st.write('## Top Neighbourhoods with more flat listings on AirBnB')
 
     top15 = df.loc[df.date == l_date ]['neighbourhood_cleansed'].value_counts().loc[lambda x : x>200].index.tolist()
@@ -43,7 +43,7 @@ def app(df,geojson_file,l_date):
                                featureidkey="properties.neighbourhood", color='price',
 
                                mapbox_style="carto-positron",
-                               zoom=10, center={"lat": 52.5, "lon": 13.4},
+                               zoom=10, center={"lat": center[0], "lon": center[1]},
                                opacity=0.5
                                )
     fig3.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
