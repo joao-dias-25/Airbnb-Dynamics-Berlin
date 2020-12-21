@@ -3,7 +3,7 @@ import pandas as pd
 
 def app(df,geojson_file, l_date,center):
 
-    st.write('## Calculate your flat')
+    st.write('## Price trend')
 
     col1, col2 = st.beta_columns(2)
     top0 = df.loc[df.date == l_date]['neighbourhood_cleansed'].value_counts().loc[lambda x: x > 70].index.tolist()

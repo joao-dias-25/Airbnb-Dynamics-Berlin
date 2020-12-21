@@ -11,7 +11,7 @@ st.set_page_config(layout="wide")
 
 PAGES = {
     "Top neighbourhoods": Page1,
-    "Map": Page2,
+    "Map density": Page2,
     "neighbourhood price": Page3
 }
 st.sidebar.title('Navigation')
@@ -24,11 +24,13 @@ page = PAGES[selection]
 
 st.sidebar.markdown('---')
 
-
+st.sidebar.markdown('Please support the website')
 st.sidebar.image('uca-url.png', caption='Donation Address: bitcoin', width= 250)
 #st.sidebar.image(Image.open('ethcode.jpeg'), caption='Donation Address: ethereum', width= 250)
 
-st.title(f'AirBnB in {city}')
+st.sidebar.write('all the data was provided by http://insideairbnb.com/get-the-data.html')
+
+st.title(f'Analysis on AirBnB in {city}')
 
 my_cities = {'Berlin': 'https://ndownloader.figshare.com/files/25844933',
              'Porto': 'https://ndownloader.figshare.com/files/25846991'}
