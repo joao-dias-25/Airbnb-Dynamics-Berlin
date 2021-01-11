@@ -6,6 +6,10 @@
 
 **[Ironhack Data Analytics - August 2020]**
 
+## Website analytics
+
+* [website update 11-01-2021](https://share.streamlit.io/joao-dias-25/airbnb-dynamics-berlin/Berlinair.py)
+
 ## Overview:
 
 * I will try to identify the hotspots neighbourhoods in Berlin where Airbnb as a bigger impact and could affect housing price/gentrification"
