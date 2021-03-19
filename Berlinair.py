@@ -2,6 +2,7 @@ import streamlit as st
 import requests
 from io import StringIO
 import pandas as pd
+#import siaskynet as skynet
 
 import Page1
 import Page2
@@ -32,8 +33,8 @@ st.sidebar.write('all the data was provided by http://insideairbnb.com/get-the-d
 
 st.title(f'Analysis on AirBnB in {city}')
 
-my_cities = {'Berlin': 'https://ndownloader.figshare.com/files/26505539',
-             'Porto': 'https://ndownloader.figshare.com/files/26653451'}
+my_cities = {'Berlin': 'https://balde.s3.filebase.com/Air_Ber_Entireflat_21-02.csv',
+             'Porto': 'https://siasky.net/AACBIjKworvqedSq-ZtirFvHJj99_NvZum93WhG8yjQEmQ'}
 
 my_geojson = {'Berlin': 'berlin-neighbourhoods.geojson',
              'Porto': 'Porto-neighbourhoods.geojson'}
