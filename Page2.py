@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 import pydeck as pdk
 
 import datetime
@@ -13,7 +14,7 @@ def app(df,geojson_file, l_date,center):
     df=df[['latitude', 'longitude', 'date']]
     #df.date = pd.to_datetime(df.date, format='%Y-%m-%d')
     with col2:
-        y=st.selectbox('date', df.date.unique())
+        y=st.selectbox('date', df.date.unique(), index=(len(df.date.unique())-1))
     df2=df.loc[df.date==y]
 
 
@@ -36,10 +37,10 @@ def app(df,geojson_file, l_date,center):
        show_original_data=True, original_data_marker=dict(opacity=0.5, size=3, color="grey"))
     #fig.update_layout(title={'text': "density spots 2D"})
     fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
-    col1, col2 = st.beta_columns(2)
-    with col2:
-        st.write('2D Map')
-        st.plotly_chart(fig)
+    #col1, col2 = st.beta_columns(2)
+    #with col2:
+    st.write('2D Map')
+    st.plotly_chart(fig)
 
     # CREATING FUNCTION FOR MAPS
 
@@ -69,7 +70,7 @@ def app(df,geojson_file, l_date,center):
         ))
 
 
-    with col1:
-        st.write('3D Map #(press control to rotate map)')
-        map(df2,center[0], center[1])
+    #with col1:
+     #   st.write('3D Map #(press control to rotate map)')
+        #map(df2,center[0], center[1])
 
