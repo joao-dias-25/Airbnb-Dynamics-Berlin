@@ -3,6 +3,7 @@ import pandas as pd
 
 def app(df,geojson_file,l_date,center):
     st.write('## Top Neighbourhoods with more flat listings on AirBnB')
+    st.write(f'updated on {l_date}')
 
     top15 = df.loc[df.date == l_date ]['neighbourhood_cleansed'].value_counts().loc[lambda x : x>200].index.tolist()
     top0 = df.loc[df.date == l_date ]['neighbourhood_cleansed'].value_counts().loc[lambda x : x>70].index.tolist()

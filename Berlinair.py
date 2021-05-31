@@ -2,6 +2,7 @@ import streamlit as st
 import requests
 from io import StringIO
 import pandas as pd
+
 #import siaskynet as skynet
 
 import Page1
@@ -33,13 +34,15 @@ st.sidebar.write('all the data was provided by http://insideairbnb.com/get-the-d
 
 st.title(f'Analysis on AirBnB in {city}')
 
-my_cities = {'Berlin': 'https://balde.s3.filebase.com/Air_Ber_Entireflat_21-02.csv',
-             'Porto': 'https://siasky.net/AACBIjKworvqedSq-ZtirFvHJj99_NvZum93WhG8yjQEmQ'}
+my_cities = {'Berlin': 'https://balde.s3.filebase.com/Air_Ber_Entireflat_21-05.csv',
+             'Porto': 'https://balde.s3.filebase.com/Air_por_Entireflat_21-05.csv'}
+
+#https://siasky.net/AACBIjKworvqedSq-ZtirFvHJj99_NvZum93WhG8yjQEmQ - porto
 
 my_geojson = {'Berlin': 'berlin-neighbourhoods.geojson',
              'Porto': 'Porto-neighbourhoods.geojson'}
-my_last_date = {'Berlin': '2021-01-19',
-             'Porto': '2021-02-13'}
+my_last_date = {'Berlin': '2021-03-12',
+             'Porto': '2021-04-16'}
 
 my_center= {'Berlin': [52.5,13.4],
              'Porto': [41.15,-08.6] }
@@ -48,7 +51,7 @@ DATA_URL = my_cities.get(city)
 geojson_string = my_geojson.get(city)
 last_date = my_last_date.get(city)
 center = my_center.get(city)
-#'https://ndownloader.figshare.com/files/25767323'
+
 
 
 @st.cache(persist=True,allow_output_mutation=True)
