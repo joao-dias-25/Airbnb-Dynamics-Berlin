@@ -34,13 +34,13 @@ st.sidebar.write('all the data was provided by http://insideairbnb.com/get-the-d
 
 st.title(f'Analysis on AirBnB in {city}')
 
-my_cities = {'Berlin': 'https://balde.s3.filebase.com/Air_Ber_Entireflat_21-10.csv',
-             'Porto': 'https://balde.s3.filebase.com/Air_por_Entireflat_22-01.csv'}
+my_cities = {'Berlin': 'https://balde.s3.filebase.com/Air_Ber_Entireflat_22-08.csv',
+             'Porto': 'https://balde.s3.filebase.com/Air_por_Entireflat_22-08.csv'}
 
 my_geojson = {'Berlin': 'berlin-neighbourhoods.geojson',
              'Porto': 'Porto-neighbourhoods.geojson'}
-my_last_date = {'Berlin': '2021-09-21',
-             'Porto': '2021-12-08'}
+my_last_date = {'Berlin': '2022-06-13',
+             'Porto': '2022-06-10'}
 
 my_center= {'Berlin': [52.5,13.4],
              'Porto': [41.15,-08.6] }
